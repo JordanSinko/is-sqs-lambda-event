@@ -1,7 +1,6 @@
-on:
-  pull_request:
-    branches:
-      - master
+name: pull
+
+on: [pull_request]
 
 jobs:
   build:
