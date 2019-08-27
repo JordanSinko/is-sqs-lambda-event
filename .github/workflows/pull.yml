@@ -5,5 +5,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: GITHUB_PULL_REQUEST_NUMBER=$(sed -E -e 's_refs/pull/([0-9]*)/merge_\1_' <<< $GITHUB_REF)
+      - run: export GITHUB_PULL_REQUEST_NUMBER=$(sed -E -e 's_refs/pull/([0-9]*)/merge_\1_' <<< $GITHUB_REF)
       - run: printenv
