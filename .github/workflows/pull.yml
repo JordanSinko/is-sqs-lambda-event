@@ -2,11 +2,9 @@ on: [pull_request]
 
 jobs:
   build:
-    container:
-      env:
-        GITHUB_PR_NUMBER: ${{ github.event.number }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: node -v
-      - run: printenv
+      - env:
+          GITHUB_PR_NUMBER: ${{ github.event.number }}
+        run: npm run scan:pull
