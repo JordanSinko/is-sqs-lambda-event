@@ -6,7 +6,7 @@
   "scripts": {
     "print": "printenv",
     "scan:push": "sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.projectVersion=$npm_package_version",
-    "scan:pull": "sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.pullrequest.key= -Dsonar.pullrequest.branch="
+    "scan:pull": "sonar-scanner -Dsonar.login=$SONAR_TOKEN -Dsonar.pullrequest.key= -Dsonar.pullrequest.branch=$GITHUB_HEAD_REF"
   },
   "dependencies": {},
   "devDependencies": {

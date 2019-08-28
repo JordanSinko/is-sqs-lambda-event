@@ -7,7 +7,7 @@ jobs:
       - uses: actions/checkout@v1
       - run: node -v
       - env:
-          JORDAN_TEST: sed -E -e 's_refs/pull/([0-9]*)/merge_\1_' <<< $GITHUB_REF
+          GITHUB_PULL_REQUEST_NUMBER_OTHER: ${{ sed -E -e 's_refs/pull/([0-9]*)/merge_\1_' <<< $GITHUB_REF }}
         run: |
           GITHUB_PULL_REQUEST_NUMBER=$(sed -E -e 's_refs/pull/([0-9]*)/merge_\1_' <<< $GITHUB_REF)
           echo $GITHUB_PULL_REQUEST_NUMBER && printenv
