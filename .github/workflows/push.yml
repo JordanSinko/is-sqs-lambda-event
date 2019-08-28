@@ -1,3 +1,5 @@
+name: Github Pushflow
+
 on:
   push:
     branches:
@@ -8,4 +10,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: printenv
+      - run: yarn
+      - run: npx jest --coverage
+      - env:
+          SONAR_CLOUD_TOKEN: ${{ secrets.SONAR_CLOUD_TOKEN }}
+        run: npm run scan:push
+      - env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: npm run release
