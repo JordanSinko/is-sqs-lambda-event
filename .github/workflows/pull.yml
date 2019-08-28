@@ -7,5 +7,6 @@ jobs:
       - uses: actions/checkout@v1
       - run: yarn
       - env:
+          SONAR_CLOUD_TOKEN: ${{ secrets.SONAR_CLOUD_TOKEN }}
           GITHUB_PR_NUMBER: ${{ github.event.number }}
         run: npm run scan:pull
