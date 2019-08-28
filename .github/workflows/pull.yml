@@ -11,6 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - run: yarn
+      - run: npx jest --coverage
       - env:
           SONAR_CLOUD_TOKEN: ${{ secrets.SONAR_CLOUD_TOKEN }}
           GITHUB_PR_NUMBER: ${{ github.event.number }}
